@@ -29,11 +29,17 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      - name: Run a script
+      - name: Run a script with secrets
         env:
+          GEN_AI_KEY: ${{ secrets.GEN_AI_KEY }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          GOOGLE_SERVICE_ACCOUNT_FILE: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_FILE }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         run: |
+          echo "GEN_AI_KEY=${{ secrets.GEN_AI_KEY }}"
+          echo "SLACK_CHANNEL_ID=${{ secrets.SLACK_CHANNEL_ID }}"
+          echo "GOOGLE_SERVICE_ACCOUNT_FILE=${{ secrets.GOOGLE_SERVICE_ACCOUNT_FILE }}"
           echo "SLACK_API_TOKEN=${{ secrets.SLACK_API_TOKEN }}"
           echo "SLACK_BOT_TOKEN=${{ secrets.SLACK_BOT_TOKEN }}"
 
