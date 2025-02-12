@@ -1,0 +1,1 @@
+If the verification process is not necessary for your use case (e.g., if you're just using it for personal or internal development), consider using an API key instead of OAuth credentials. An API key will allow access to some Google APIs without the need for the OAuth consent flow, though this may have limitations depending on the API you're using.
